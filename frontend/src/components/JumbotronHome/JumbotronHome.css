@@ -1,0 +1,40 @@
+.bgImg {
+	background-image: url(https://www.zillowstatic.com/s3/homepage/static/ZillowTimberlake_2098_DT_1440.webp);
+    width: 100%;
+}
+.myjumbotron {
+	width: 100%;
+	height: 390px;
+}
+.jh {
+	font-size: 40px;
+	line-height: 40px;
+    font-weight: bold;
+
+	color: #fff;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 550px;
+	/* font-size: 26px; */
+	line-height: 36px;
+    /* font-weight: 700; */
+    font-family: "Ivar Headline","Ivar Headline Subset","Adjusted Times","Adjusted Times New Roman","Times New Roman",serif;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+.jb{
+    font-size: 32px;
+	line-height: 40px;
+    font-weight: bold;
+
+	color: #fff;
+	text-align: center;
+	margin: 0 auto;
+	/* max-width: 550px; */
+	/* font-size: 26px; */
+	line-height: 36px;
+    /* font-weight: 700; */
+    font-family: "Ivar Headline","Ivar Headline Subset","Adjusted Times","Adjusted Times New Roman","Times New Roman",serif;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
