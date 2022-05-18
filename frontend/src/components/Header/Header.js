@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'
 // import placeholder from 'https://via.placeholder.com/728x90.png?text=Visit';
 
 let profilePlaceholderUrl = "https://via.placeholder.com/728x90.png?text=Visit";
@@ -16,6 +18,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
   return (
+    <>
     <header>
         <div>
             Header
@@ -23,7 +26,9 @@ function closeNav() {
         <div class="container-fluid">
             <span className="nav-item humburger" style={{fontSize: "30px", cursor: "pointer"}}
                 onClick={openNav}>&#9776;</span>
-            <a className="navbar-brand nav-item" style={{fontFamily: "cursive, Copperplate, fantasy, Arial", fontSize: "20"}} href="{% url 'home' %}">Nibas</a>
+
+            {/* <Link></Link> */}
+            <Link to='/' className="navbar-brand nav-item" style={{fontFamily: "cursive, Copperplate, fantasy, Arial", fontSize: "20"}} >Nibas</Link>
 
             {/* <!-- <div style="width: 100%;">
         <input class="form-control search" type="search" placeholder="Search" aria-label="Search">
@@ -48,7 +53,7 @@ function closeNav() {
 
            {/*  <!-- favourite starts --> */}
             <div class="nav-item">
-                <span><a href="{% url 'cart' %}" class="nav-link cartlink"><i class="
+                <span><a href="{% url 'cart' %}" class="nav-link favourite-link"><i class="
                                     fa fa-heart fa-lg
                                     d-inline
                                     badge
@@ -77,10 +82,10 @@ function closeNav() {
             </div>
             <hr/>
             <button /* href={nolink} */ class="closebtn" onClick={closeNav}>&times;</button>
-            <a href="/">Profile</a>
-            <a href="/">Rent</a>
-            <a href="/">Buy</a>
-            <a href="/">Sell</a>
+            <Link to="/">Profile</Link>
+            <Link to="/">Rent</Link>
+            <Link to="/">Buy</Link>
+            <Link to="/">Sell</Link>
         </div>
     </nav>
 
@@ -89,7 +94,7 @@ function closeNav() {
         </div>
     </header>
     
-
+    </>         
 
   )
 }

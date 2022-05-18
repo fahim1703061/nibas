@@ -1,6 +1,7 @@
 import React from 'react'
+
 import {
-    BrowserRouter,
+    
     Routes,
     Route,
   } from "react-router-dom";
@@ -11,12 +12,18 @@ import Home from '../pages/Home/Home';
 
 function PageRoute() {
   return (
-    <BrowserRouter>
+    <div>
+
+    
+        
         <Routes>
+          {/* <Link></Link> */}
             <Route exact path='/' element = {<Home />}></Route>
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
-    </BrowserRouter>
+    
+
+    </div>
   )
 }
 
