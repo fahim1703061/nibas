@@ -23,7 +23,7 @@ function closeNav() {
         <div class="container-fluid">
             <span className="nav-item humburger" style={{fontSize: "30px", cursor: "pointer"}}
                 onClick={openNav}>&#9776;</span>
-            <a className="navbar-brand nav-item" href="{% url 'home' %}">Nibas</a>
+            <a className="navbar-brand nav-item" style={{fontFamily: "cursive, Copperplate, fantasy, Arial", fontSize: "20"}} href="{% url 'home' %}">Nibas</a>
 
             {/* <!-- <div style="width: 100%;">
         <input class="form-control search" type="search" placeholder="Search" aria-label="Search">
@@ -46,16 +46,16 @@ function closeNav() {
                 </form>
             </div>
 
-           {/*  <!-- cart starts --> */}
+           {/*  <!-- favourite starts --> */}
             <div class="nav-item">
                 <span><a href="{% url 'cart' %}" class="nav-link cartlink"><i class="
-                                    fa fa-shopping-cart fa-lg
+                                    fa fa-heart fa-lg
                                     d-inline
                                     badge
-                                    cart-icon
-                                " value="{{cartItems}}"></i></a></span>
+                                    favourite-icon
+                                " value="{{favItems}}"></i></a></span>
             </div>
-            {/* <!-- cart endss -->
+            {/* <!-- favourite endss -->
             <!-- login starts --> */}
             <div class="nav-item">
                 <span><a href="/" class="nav-link loginlink"><i

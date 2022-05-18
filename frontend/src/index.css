@@ -48,10 +48,10 @@
     color: inherit;
 }
 /* cart icon design */
-.fa-shopping-cart {
-    color: #8a8383;
+.fa-heart {
+    color: #f07171;
 }
-.cart-icon {
+.favourite-icon {
     padding-left: 0px;
     padding-right: 0px;
 }
