@@ -9,6 +9,7 @@ import {
   //pages
 import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
+import Services from '../pages/Services/Services';
 
 function PageRoute() {
   return (
@@ -19,6 +20,7 @@ function PageRoute() {
         <Routes>
           {/* <Link></Link> */}
             <Route exact path='/' element = {<Home />}></Route>
+            <Route exact path='/services' element = {<Services />}></Route>
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
     
