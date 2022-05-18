@@ -1,0 +1,103 @@
+.serviceCard{
+    padding: 72px 0;
+    margin: auto;
+    display: grid;
+    display: inline-block ;
+    
+    
+    width: 100%;
+}
+.cards{
+    
+   
+    /* color: white; */
+    /* display: flex; */
+    margin:24px;
+    justify-content: center;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 0.6rem;
+    transition: all 0.3s;
+    display: inline-table;
+    background-color: rgb(250, 240, 250);
+    cursor: pointer;
+    justify-content: center;
+    
+}
+.cards:hover {
+    transform: scale(1.1);
+  }
+.cardsImg{
+    width: 290px;
+    height: 154px;
+    padding:2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardtitle{
+    text-align: center;
+}
+.cardbody{
+    text-align: center;
+}
+.cardButton{
+    background-color: rgb(255, 255, 255);
+    /* border-color: rgb(0, 106, 255); */
+    color: rgb(0, 106, 255);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* .eoQIbw { */
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 1px solid;
+        border-radius: 4px;
+        user-select: none;
+        padding: 9px 16px;
+        margin: 24px 0px 16px;
+        appearance: none;
+        transition-property: background-color, border-color, color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        outline: none;
+        box-shadow: none;
+        width: auto;
+        position: relative;
+        color: rgb(42, 42, 51);
+        -webkit-font-smoothing: antialiased;
+        text-transform: none;
+        font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        height: auto;
+    /* } */
+}
+.cardButton:hover{
+    color: rgb(48, 46, 46);
+    border-color: rgb(0, 106, 255);
+}
+
+@media screen and (min-width: 768px) {
+    .serviceCard{
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .serviceCard{
+        grid-template-columns: auto auto auto;
+    }
+    .cards{
+        width:28%;
+    }
+}

@@ -1,9 +1,19 @@
 import React from 'react'
 import JumbotronHome from '../../components/JumbotronHome/JumbotronHome';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
 function Home() {
   return (
-    <JumbotronHome />
+    <div>
+
+      <main>
+
+      <JumbotronHome />
+      <ServiceCard />
+
+      </main>
+
+    </div>
   )
 }
 
