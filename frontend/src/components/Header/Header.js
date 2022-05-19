@@ -83,7 +83,7 @@ function closeNav() {
             <hr/>
             <button /* href={nolink} */ class="closebtn" onClick={closeNav}>&times;</button>
             <Link to="/">Profile</Link>
-            <Link to="/">Rent</Link>
+            <Link to="/rent">Rent</Link>
             <Link to="/">Buy</Link>
             <Link to="/">Sell</Link>
         </div>

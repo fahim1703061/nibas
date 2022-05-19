@@ -9,6 +9,8 @@ import {
   //pages
 import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
+import Rent from '../pages/Rent/Rent';
+import RentDetails from '../pages/RentDetails/RentDetails';
 import Services from '../pages/Services/Services';
 
 function PageRoute() {
@@ -20,6 +22,8 @@ function PageRoute() {
         <Routes>
           {/* <Link></Link> */}
             <Route exact path='/' element = {<Home />}></Route>
+            <Route exact path='/rent' element = {<Rent />}></Route>
+            <Route exact path='/rent/:id' element = {<RentDetails />}></Route>
             <Route exact path='/services' element = {<Services />}></Route>
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
