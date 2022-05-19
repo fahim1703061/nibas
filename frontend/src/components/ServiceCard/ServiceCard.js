@@ -29,7 +29,10 @@ function ServiceCard() {
 				<img src={buyCardImg} alt="rent home" className="cardsImg"/>
                 <h3 className = "cardtitle">Buy a home</h3>
                 <p className="cardbody">Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
-                <button className="cardButton">Search Homes</button>
+                <Link to = '/buy'>
+				    <button className="cardButton">Search Homes</button>
+				</Link>
+				
 			</div>
             </Row>
 		</div>
