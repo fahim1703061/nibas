@@ -23,7 +23,7 @@ function BuyHomes({buyHome}) {
                 </div>
             </Card.Text>
             <Card.Text as = "h3">
-                Price:  ${buyHome.price}
+                Price: {buyHome.price}Tk
                 
             </Card.Text>
         </Card.Body>

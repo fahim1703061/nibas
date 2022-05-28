@@ -25,7 +25,7 @@ function RentHomes( {rentHome}) {
                 </div>
             </Card.Text>
             <Card.Text as = "h3">
-                 ${rentHome.rentperDuration}/{rentHome.duration}
+                 Tk. {rentHome.rentperDuration}/{rentHome.duration}
                 
             </Card.Text>
         </Card.Body>
