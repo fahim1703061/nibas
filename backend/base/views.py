@@ -33,4 +33,4 @@ def getRentHome(requst, pk):
         if i['_id'] == pk:
             rentHome = i
             break
-    return Response(rentHomes)
+    return Response(rentHome)

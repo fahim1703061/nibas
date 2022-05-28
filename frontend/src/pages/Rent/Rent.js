@@ -11,7 +11,7 @@ function Rent() {
     
     async function fetchRentHomes(){
 
-      const { data } = await axios.get('http://127.0.0.1:8000/api/rent/')
+      const { data } = await axios.get('/api/rent/')
       setRentHomes(data)
     }
     fetchRentHomes()
