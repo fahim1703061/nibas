@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import RentHomes from '../../components/RentHomes/RentHomes';
-import rentHomes from './RentHomes_data';
+// import rentHomes from './RentHomes_data';
 import { Row, Col} from 'react-bootstrap'
+import axios from 'axios'
 
 function Rent() {
+
+  const [rentHomes, setRentHomes] = useState([])
+  useEffect(() => {
+    
+    async function fetchRentHomes(){
+
+      const { data } = await axios.get('http://127.0.0.1:8000/api/rent/')
+      setRentHomes(data)
+    }
+    fetchRentHomes()
+
+    
+  }, [])
+  
+
   return (
     <div>
 
