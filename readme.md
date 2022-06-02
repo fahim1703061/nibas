@@ -15,3 +15,7 @@ for Django environment setup
     1. pip install virtualenv
     2. virtualenv myenv
     3. myenv\Scripts\activate
+
+## react server start
+
+npm run-script start
