@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 import {
     
     Routes,
@@ -14,6 +15,7 @@ import Rent from '../pages/Rent/Rent';
 import RentDetails from '../pages/RentDetails/RentDetails';
 import Services from '../pages/Services/Services';
 import Buy from '../pages/Buy/Buy';
+import FAQs from '../pages/FAQs/FAQs';
 
 function PageRoute() {
   return (
@@ -28,6 +30,7 @@ function PageRoute() {
             <Route exact path='/rent/:id' element = {<RentDetails />}></Route>
             <Route exact path='/buy' element = {<Buy />}></Route>
             <Route exact path='/services' element = {<Services />}></Route>
+            <Route exact path='/faqs' element = {<FAQs />}></Route>
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
     

@@ -24,7 +24,7 @@ function Footer() {
             <ul class="list-unstyled nav-links">
               <li><a href="/">Clients</a></li>
               <li><a href="/">Team</a></li>
-              <li><a href="/">Journal</a></li>
+              <li><Link to="/faqs">FAQs</Link></li>
             </ul>
           </div>
           <div class="col-md">
