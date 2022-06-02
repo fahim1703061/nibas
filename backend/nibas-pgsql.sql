@@ -12,13 +12,7 @@ CREATE TABLE "Home"(
 );
 ALTER TABLE
     "Home" ADD PRIMARY KEY("id");
-CREATE TABLE "user"(
-    "id" INTEGER NOT NULL,
-    "first_name" CHAR(255) NOT NULL,
-    "last_name" CHAR(255) NOT NULL
-);
-ALTER TABLE
-    "user" ADD PRIMARY KEY("id");
+
 CREATE TABLE "rentHome"(
     "id" INTEGER NOT NULL,
     "priceperDuration" DOUBLE PRECISION NOT NULL,
@@ -39,4 +33,4 @@ ALTER TABLE
 ALTER TABLE
     "rentHome" ADD CONSTRAINT "renthome_home_id_foreign" FOREIGN KEY("home_id") REFERENCES "Home"("id");
 ALTER TABLE
-    "Home" ADD CONSTRAINT "home_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "user"("id");
+    "Home" ADD CONSTRAINT "home_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "User"("id");
