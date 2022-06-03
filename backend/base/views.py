@@ -5,7 +5,11 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import RentHome
+
 from .RentHomes_data import rentHomes
+
+from .serializers import RentHomeSerializer
 
 
 # Create your views here.
@@ -23,7 +27,13 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getRentHomes(requst):
-    return Response(rentHomes)
+    # rentHomes = RentHome.objects.get(_id=1)
+    rentHomes = RentHome.objects.all()
+    # homes = Home.objects.get
+    # serializer = HomeSerializer(rentHomes, many=True)
+    print(rentHomes)
+    serializer = RentHomeSerializer(rentHomes, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])

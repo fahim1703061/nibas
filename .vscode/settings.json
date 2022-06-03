@@ -1,5 +1,8 @@
 {
     "prettier.tabWidth": 4,
     "prettier.useTabs": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+
+    "python.defaultInterpreterPath": "../myenv/Scripts/python.exe"
+
 }

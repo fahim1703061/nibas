@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import RentHomes from '../../components/RentHomes/RentHomes';
-// import rentHomes from './RentHomes_data';
+import rentHomes_data from './RentHomes_data';
 import { Row, Col} from 'react-bootstrap'
 import axios from 'axios'
 
@@ -11,8 +11,9 @@ function Rent() {
     
     async function fetchRentHomes(){
 
-      const { data } = await axios.get('/api/rent/')
-      setRentHomes(data)
+      // const { data } = await axios.get('/api/rent/')
+      const { data } = rentHomes_data
+      setRentHomes(rentHomes_data)
     }
     fetchRentHomes()
 
