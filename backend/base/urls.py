@@ -10,6 +10,7 @@ urlpatterns = [
     path('rent/', views.getRentHomes, name='rentHomes'),
     path('rent/<str:pk>', views.getRentHome, name='rentHome'),
 
+    path('buy/', views.getSellHomes, name='sellHomes'),
+    path('buy/<str:pk>', views.getSellHome, name='sellHome'),
+
 ]
-
-

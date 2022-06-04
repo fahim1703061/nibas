@@ -64,3 +64,42 @@ class RenterHome(models.Model):
 
     def __unicode__(self):
         return
+
+
+class SellHome(models.Model):
+    _id = models.AutoField(primary_key=True, editable=False)
+    title = models.CharField(max_length=200, null=True, blank=True)
+    description = models.CharField(max_length=600, null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
+    no_bedrooms = models.IntegerField(default=0, null=True, blank=True)
+    no_bathrooms = models.IntegerField(default=0, null=True, blank=True)
+    no_kitchens = models.IntegerField(default=0, null=True, blank=True)
+    no_parkings = models.IntegerField(default=0, null=True, blank=True)
+    square_footage = models.IntegerField(default=0, null=True, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True, null=True)
+    image = models.ImageField(null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    price = models.FloatField(default=0, null=True, blank=True)
+    contact_no = models.IntegerField(default=0, null=True, blank=True)
+    contact_email = models.EmailField(max_length=600, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.title)
+
+    def __unicode__(self):
+        return self._id
+
+
+class BuyerHome(models.Model):
+    buyer = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True)
+    SellHome = models.ForeignKey(
+        RentHome, on_delete=models.CASCADE, null=True)
+    requestDate = models.DateTimeField(auto_now_add=True)
+    confirmDate = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.buyer)
+
+    def __unicode__(self):
+        return
