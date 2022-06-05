@@ -25,3 +25,4 @@ https://drawsql.app/ruet17/diagrams/nibas#
 # Issues
 
 -   add status field to rent buy db
+-   connect buy and buydetails to bcknd
