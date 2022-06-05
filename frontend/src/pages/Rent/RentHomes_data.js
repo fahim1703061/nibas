@@ -25,7 +25,7 @@ const rentHomes_data = [
     },
     {
         '_id': '4',
-        'name': 'Arman Tower',
+        'title': 'Arman Tower',
         'description': 'Large apartment, Good window view, neighbours are humble',
         'image': '/images/RentHomes/Rent_a_home.webp',
         'rentPerDuration': 500,

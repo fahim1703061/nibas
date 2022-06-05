@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import rentHomes_data from './RentHomes_data';
 import { Link, useParams } from 'react-router-dom'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
+import axios from 'axios'
 
 function RentDetails() {
 
-
-
-
-
   const { id } = useParams();
-  const rentHome = rentHomes_data.find((p) => p._id === id)
+
+  const [rentHomes, setRentHomes] = useState([])
+  useEffect(() => {
+    
+    async function fetchRentHomes(){
+      
+      //start- data from backend
+      const { data } = await axios.get(`/api/rent/${id}`)
+      setRentHomes(data)
+      //end- data from backend
+      // const { data } = rentHomes_data
+      // setRentHomes(rentHomes_data)
+    }
+    fetchRentHomes()
+
+    
+  }, [])
+
+  // const { id } = useParams();
+  // const rentHome = rentHomes.find((p) => p._id === id)  //for frontend
+  
+  const rentHome = rentHomes    //for backend
   function sendRequest() {
     document.getElementById("rqbtn").value = "Request Sent";
     document.getElementById("rqbtn").disabled = true;
@@ -21,8 +39,11 @@ function RentDetails() {
       <Link to='/rent' className='btn btn-light my-3'>Go Back</Link>
       <Row>
 
-        <Col md={6}>
-          <Image src={rentHome.image} alt={rentHome.title} fluid />
+        <Col md={6} className="justify-content-md-center">
+          <div class=" mx-auto" style = {{width: 'fit-content'}}>
+
+            <Image className='d-block' src={rentHome.image} alt={rentHome.title} fluid />
+          </div>
         </Col>
 
         <Col md={3}>
@@ -40,7 +61,7 @@ function RentDetails() {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              Rent: Tk. {rentHome.rentPerDuration}/{rentHome.duration}
+              Rent: Tk. {rentHome.pricePerDuration}/{rentHome.duration}
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -52,7 +73,7 @@ function RentDetails() {
                 <Row>
                   <Col>Rent:</Col>
                   <Col>
-                    <strong> Tk. {rentHome.rentPerDuration}/{rentHome.duration}</strong>
+                    <strong> Tk. {rentHome.pricePerDuration}/{rentHome.duration}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -103,31 +124,31 @@ function RentDetails() {
                 <h3>Condition</h3>
                 <hr />
                 <ListGroup variant="flush" class="feature-list my-4" style = {{border: '1px solid #eeeeee'}} >
-                  <ListGroup.Item><span  class="image mr-5" style = {{marginRight: '12px'}}><Image src='/images/icons/rentHomes/bath.png' alt="" /></span>Bathroom {rentHome.no_bathrooms}</ListGroup.Item>
-                  <ListGroup.Item><span className="image mr-5" style = {{marginRight: '12px'}}><Image src='/images/icons/rentHomes/parking.png' alt=""/></span>Garage { rentHome.no_parkings }</ListGroup.Item>
-                  <ListGroup.Item><span class="image" style = {{marginRight: '12px'}}><Image src='/images/icons/rentHomes/kitchen.png' alt=""/></span>Kitchen { rentHome.no_kitchens }</ListGroup.Item>
-                  <ListGroup.Item><span class="image" style = {{marginRight: '12px'}}><Image src='/images/icons/rentHomes/area.png' alt=""/></span>Area { rentHome.square_footage }</ListGroup.Item>
-                  <ListGroup.Item><span class="image" style = {{marginRight: '12px'}}><Image src='/images/icons/rentHomes/bed.png' alt=""/></span>Bedroom { rentHome.no_bedrooms }</ListGroup.Item>
+                  <ListGroup.Item><span class="image p-2" ><Image src='/images/icons/rentHomes/area.png' alt=""/></span>Area { rentHome.square_footage }</ListGroup.Item>
+                  <ListGroup.Item><span class="image p-2" ><Image src='/images/icons/rentHomes/bed.png' alt=""/></span>Bedroom { rentHome.no_bedrooms }</ListGroup.Item>
+                  <ListGroup.Item><span  class="image p-2"><Image src='/images/icons/rentHomes/bath.png' alt="" /></span>Bathroom {rentHome.no_bathrooms}</ListGroup.Item>
+                  <ListGroup.Item><span class="image p-2"><Image src='/images/icons/rentHomes/kitchen.png' alt=""/></span>Kitchen { rentHome.no_kitchens }</ListGroup.Item>
+                  <ListGroup.Item><span className="image p-2"><Image src='/images/icons/rentHomes/parking.png' alt=""/></span>Garage { rentHome.no_parkings }</ListGroup.Item>
                 </ListGroup>
               </div>
             
             
             
-            <div class="col-6">
+              <div class="col-6">
               
               <h3>Amenities</h3>
               <hr />
-              <ul class="amenities-list" style = {{border: '1px solid #eeeeee', listStylePosition: 'inside', columns: '2'}}>
-                <li>Air Conditioning</li>
-                <li>Bedding</li>
-                <li>Balcony</li>
-                <li>Cable TV</li>
-                <li>Internet</li>
-                <li>Parking</li>
-                <li>Lift</li>
-                <li>Pool</li>
-                <li>Dishwasher</li>
-                <li>Toaster</li>
+              <ul class="amenities-list list-unstyled" style = {{border: '1px solid #eeeeee', listStylePosition: 'inside', columns: '2'}}>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Air Conditioning</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Bedding</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Balcony</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Cable TV</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Internet</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Parking</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Lift</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Pool</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Dishwasher</li>
+                <li><i class="fa fa-hand-o-right p-2 text-info" aria-hidden="true"></i>Toaster</li>
               </ul>
             </div>
             

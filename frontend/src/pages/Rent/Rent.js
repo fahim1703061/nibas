@@ -11,9 +11,12 @@ function Rent() {
     
     async function fetchRentHomes(){
 
-      // const { data } = await axios.get('/api/rent/')
-      const { data } = rentHomes_data
-      setRentHomes(rentHomes_data)
+      //start- data from backend
+      const { data } = await axios.get('/api/rent/')
+      setRentHomes(data)
+      //end- data from backend
+      // const { data } = rentHomes_data
+      // setRentHomes(rentHomes_data)
     }
     fetchRentHomes()
 
