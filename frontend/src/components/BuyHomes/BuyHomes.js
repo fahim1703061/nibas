@@ -7,12 +7,12 @@ function BuyHomes({buyHome}) {
   return (
     <div>
       <Card className='my-3 p-3 rounded' >
-        <Link to={'/rent/:{buyHome._id}'}>
+        <Link to={`/buy/${buyHome._id}`}>
             <Card.Img src={buyHome.image} />
         </Link>
 
         <Card.Body>
-            <Link to='/rent/'>
+            <Link to={`/buy/${buyHome._id}`}>
                 <Card.Title as="div" className=''>
                     <strong style={{color: "black"}}>{buyHome.name}</strong>
                 </Card.Title>
