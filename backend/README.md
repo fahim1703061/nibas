@@ -21,3 +21,7 @@ https://github.com/FahadAminShovon/SSLCOMMERZ-integration-with-react-and-flask
 ## Database Design Schema
 
 https://drawsql.app/ruet17/diagrams/nibas#
+
+# Issues
+
+-   add status field to rent buy db
