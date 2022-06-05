@@ -63,8 +63,8 @@ function closeNav() {
             {/* <!-- favourite endss -->
             <!-- login starts --> */}
             <div class="nav-item">
-                <span><a href="/" class="nav-link loginlink"><i
-                            class="fa fa-user fa-lg d-inline"></i>Login</a></span>
+                <span><Link to="/login" class="nav-link loginlink"><i
+                            class="fa fa-user fa-lg d-inline"></i>Login</Link></span>
             </div>
             {/* <!-- login endss --> */}
         </div>
