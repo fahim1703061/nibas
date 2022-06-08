@@ -55,11 +55,11 @@
     padding-left: 0px;
     padding-right: 0px;
 }
-/* cart link design */
+/* favourite link design */
 .favourite-link {
     color: inherit;
 }
-/* cart badge design */
+/* favourite badge design */
 .badge:after {
     content: attr(value);
     font-size: 12px;

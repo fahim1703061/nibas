@@ -18,6 +18,7 @@ import Buy from '../pages/Buy/Buy';
 import FAQs from '../pages/FAQs/FAQs';
 import BuyDetails from '../pages/BuyDetails/BuyDetails';
 import Login from '../pages/Login/Login';
+import Signup from '../pages/Signup/Signup';
 
 function PageRoute() {
   return (
@@ -35,6 +36,8 @@ function PageRoute() {
             <Route exact path='/services' element = {<Services />}></Route>
             <Route exact path='/faqs' element = {<FAQs />}></Route>
             <Route exact path='/login' element = {<Login />}></Route>
+            <Route exact path='/signup' element = {<Signup />}></Route>
+
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
     

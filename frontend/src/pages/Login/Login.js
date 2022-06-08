@@ -77,7 +77,7 @@ function Login() {
         </div>
       </form>
       <div>
-          <p>New here? <Link to='/' className="text-primary">Sign Up!</Link></p>
+          <p>New here? <Link to='/signup' className="text-primary">Sign Up!</Link></p>
       </div>
     </div>
   );
