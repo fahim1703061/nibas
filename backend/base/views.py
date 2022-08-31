@@ -64,14 +64,14 @@ def updateUserProfile(request):
 
     data = request.data
     user.first_name = data['name']
-    user.username = data['email']
+    # user.username = data['username']
     user.email = data['email']
 
     if data['password'] != '':
         user.password = make_password(data['password'])
 
     user.save()
-
+    serializer = UserSerializerWithToken(user, many=False)
     return Response(serializer.data)
 
 
@@ -79,6 +79,14 @@ def updateUserProfile(request):
 @permission_classes([IsAuthenticated])
 def getUserProfile(request):
     user = request.user
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def getUserById(request, pk):
+    user = User.objects.get(id=pk)
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 

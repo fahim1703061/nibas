@@ -179,7 +179,7 @@ function Header() {
 							>
 								&times;
 							</button>
-							<Link to="/">Profile</Link>
+							<Link to="/profile">Profile</Link>
 							<Link to="/rent">Rent</Link>
 							<Link to="/buy">Buy</Link>
 							<Link to="/">Sell</Link>
