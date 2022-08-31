@@ -19,7 +19,7 @@ function BuyHomes({buyHome}) {
             </Link>
             <Card.Text as="div">
                 <div className='my-3'>
-                    {buyHome.Description}
+                    {buyHome.description}
                 </div>
             </Card.Text>
             <Card.Text as = "h3">

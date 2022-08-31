@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Link, useParams } from 'react-router-dom'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
-
+import axios from 'axios'
 import buyHomes_data from './BuyHomes_data'
 
 function BuyDetails() {
 
+  const { id } = useParams();
 
-    const { id } = useParams();
-  const buyHome = buyHomes_data.find((p) => p._id === id)
+  const [buyHomes, setbuyHomes] = useState([])
+  useEffect(() => {
+    
+    async function fetchbuyHomes(){
+      
+      //start- data from backend
+      const { data } = await axios.get(`/api/buy/${id}`)
+      setbuyHomes(data)
+      //end- data from backend
+      // const { data } = buyHomes_data
+      // setbuyHomes(buyHomes_data)
+    }
+    fetchbuyHomes()
+
+    
+  }, [])
+
+  // const { id } = useParams();
+  // const buyHome = buyHomes_data.find((p) => p._id === id) //for frontend
+  const buyHome = buyHomes    //for backend
   function sendRequest() {
     document.getElementById("rqbtn").value = "Request Sent";
     document.getElementById("rqbtn").disabled = true;

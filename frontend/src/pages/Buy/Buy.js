@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import buyHomes from './BuyHomes_data';
 import { Row, Col} from 'react-bootstrap'
 import BuyHomes from '../../components/BuyHomes/BuyHomes';
+import axios from 'axios'
+
 
 function Buy() {
+
+
+  const [buyHomes, setbuyHomes] = useState([])
+  useEffect(() => {
+    
+    async function fetchbuyHomes(){
+
+      //start- data from backend
+      const { data } = await axios.get('/api/buy/')
+      setbuyHomes(data)
+      //end- data from backend
+      // const { data } = rentHomes_data
+      // setRentHomes(buyHomes_data)
+    }
+    fetchbuyHomes()
+
+    
+  }, [])
   return (
     <div>
 
