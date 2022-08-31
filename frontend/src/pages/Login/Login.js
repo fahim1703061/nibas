@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import axios from 'axios';
 
 import "./login.css";
 
 function Login() {
   // React States
+  const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
   const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(userInfo);
 
+  if(userInfo){
+    // setIsSubmitted(true);
+    console.log();
+  }
+  // else{
+  //   setIsSubmitted(false)
+  // }
   // User Login info
   const database = [
     {
@@ -54,6 +63,7 @@ function Login() {
         console.log(response);
         localStorage.setItem('userInfo', JSON.stringify(response.data));
         setIsSubmitted(true);
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error.response.data.detail);
@@ -130,7 +140,7 @@ function Login() {
     <div className="login">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        {isSubmitted ? (<div>User is successfully logged in</div>) : renderForm}
       </div>
     </div>
   );
