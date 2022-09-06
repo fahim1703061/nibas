@@ -35,7 +35,7 @@ function BuyDetails() {
   }
   return (
     <div>
-      <Link to='/rent' className='btn btn-light my-3'>Go Back</Link>
+      <Link to='/buy' className='btn btn-light my-3'>Go Back</Link>
       <Row>
 
         <Col md={6} >

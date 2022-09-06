@@ -182,7 +182,7 @@ function Header() {
 							<Link to="/profile">Profile</Link>
 							<Link to="/rent">Rent</Link>
 							<Link to="/buy">Buy</Link>
-							<Link to="/">Sell</Link>
+							<Link to="/sell">Sell</Link>
 						</div>
 					</nav>
 					{/* <!-- sidenav ends --> */}

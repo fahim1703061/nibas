@@ -17,6 +17,9 @@ function BuyHomes({buyHome}) {
                     <strong style={{color: "black"}}>{buyHome.name}</strong>
                 </Card.Title>
             </Link>
+            <Card.Title as = "div">
+                <strong>{buyHome.title}</strong>
+            </Card.Title>
             <Card.Text as="div">
                 <div className='my-3'>
                     {buyHome.description}
@@ -28,9 +31,7 @@ function BuyHomes({buyHome}) {
             </Card.Text>
         </Card.Body>
 
-            {/* <Card.Title as = "div">
-                <strong>{rentHome.name}</strong>
-            </Card.Title> */}
+            
       </Card>  
     </div>
   )
