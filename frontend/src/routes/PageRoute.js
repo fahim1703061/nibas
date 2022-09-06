@@ -22,6 +22,7 @@ import Signup from '../pages/Signup/Signup';
 import Profile from '../pages/Profile/Profile';
 import Sell from '../pages/Sell/Sell';
 import RentOut from '../pages/RentOut/RentOut';
+import UserList from '../pages/UserList/UserList';
 
 function PageRoute() {
   return (
@@ -43,6 +44,7 @@ function PageRoute() {
             <Route exact path='/login' element = {<Login />}></Route>
             <Route exact path='/signup' element = {<Signup />}></Route>
             <Route exact path='/profile' element = {<Profile />}></Route>
+            <Route exact path='/admin/userlist' element = {<UserList />}></Route>
 
             <Route  path='*' element = {<Error />}></Route>
         </Routes>

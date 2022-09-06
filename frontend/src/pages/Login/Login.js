@@ -118,7 +118,7 @@ function Login() {
       {renderErrorMessage("uname")}
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input type="username" name="uname" required />
           
         </div>
         <div className="input-container">

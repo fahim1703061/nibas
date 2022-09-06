@@ -127,6 +127,16 @@ function Header() {
 											Profile
 										</NavDropdown.Item>
 									</LinkContainer> */}
+									
+									{(userInfo.isAdmin) ? (
+										<LinkContainer to='/admin/userlist'>
+										<NavDropdown.Item >
+											Userlist
+											
+										</NavDropdown.Item>
+
+									</LinkContainer>
+									) : null}
 									<LinkContainer to='/login'>
 										<NavDropdown.Item onClick={logoutHandler}>
 											Logout
@@ -142,7 +152,11 @@ function Header() {
 										<i className="fa fa-user fa-lg d-inline"></i>Login
 									</Nav.Link>
 								</LinkContainer>
+
+								
 							)}
+
+							
 
 							{/* <div class="nav-item">
 								<span>
