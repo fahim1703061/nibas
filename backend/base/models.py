@@ -37,11 +37,12 @@ class RentHome(models.Model):
     no_parkings = models.IntegerField(default=0, null=True, blank=True)
     square_footage = models.IntegerField(default=0, null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True,
+                              default='/placeholder.png')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     pricePerDuration = models.FloatField(default=0, null=True, blank=True)
     duration = models.CharField(max_length=200, null=True, blank=True)
-    contact_no = models.IntegerField(default=0, null=True, blank=True)
+    contact_no = models.CharField(max_length=200, null=True, blank=True)
     contact_email = models.EmailField(max_length=600, null=True, blank=True)
 
     def __str__(self):
@@ -77,10 +78,11 @@ class SellHome(models.Model):
     no_parkings = models.IntegerField(default=0, null=True, blank=True)
     square_footage = models.IntegerField(default=0, null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True,
+                              default='/placeholder.png')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     price = models.FloatField(default=0, null=True, blank=True)
-    contact_no = models.IntegerField(default=0, null=True, blank=True)
+    contact_no = models.CharField(max_length=200, null=True, blank=True)
     contact_email = models.EmailField(max_length=600, null=True, blank=True)
 
     def __str__(self):

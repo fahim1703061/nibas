@@ -3,6 +3,7 @@
     "prettier.useTabs": true,
     "files.autoSave": "onFocusChange",
 
-    "python.defaultInterpreterPath": "../myenv/Scripts/python.exe"
+    "python.defaultInterpreterPath": "../myenv/Scripts/python.exe",
+    "editor.tabSize": 4
 
 }

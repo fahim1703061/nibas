@@ -19,8 +19,8 @@ urlpatterns = [
     path('', views.getRoutes, name='routes'),
     path('rent/', views.getRentHomes, name='rentHomes'),
     path('rent/<str:pk>', views.getRentHome, name='rentHome'),
-
-    path('buy/', views.getSellHomes, name='sellHomes'),
-    path('buy/<str:pk>', views.getSellHome, name='sellHome'),
+    path('sell/', views.sellHome, name='sellHome'),
+    path('buy/', views.getSellHomes, name='buyHomes'),
+    path('buy/<str:pk>', views.getSellHome, name='buyHome'),
 
 ]

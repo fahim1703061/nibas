@@ -131,6 +131,37 @@ def getRentHome(requst, pk):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def sellHome(request):
+    data = request.data
+    user = request.user
+    try:
+        homeSell = SellHome.objects.create(
+            title=data['title'],
+            description=data['description'],
+            address=data['address'],
+            no_bedrooms=(data['no_bedrooms']),
+            no_bathrooms=(data['no_bathrooms']),
+            no_kitchens=data['no_kitchens'],
+            no_parkings=data['no_parkings'],
+            square_footage=data['square_footage'],
+            owner=user,
+            price=data['price'],
+            contact_no=data['contact_no'],
+            contact_email=data['contact_email'],
+            image=request.FILES.get('image'),
+
+
+        )
+
+        message = {'detail': 'Your home is added to sell list'}
+        return Response(message)
+    except:
+        message = {'detail': 'User with this email already exists'}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
+
 @api_view(['GET'])
 def getSellHomes(requst):
     # rentHomes = RentHome.objects.get(_id=1)
