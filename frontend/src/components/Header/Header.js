@@ -181,6 +181,7 @@ function Header() {
 							</button>
 							<Link to="/profile">Profile</Link>
 							<Link to="/rent">Rent</Link>
+							<Link to="/rentout">Rent out</Link>
 							<Link to="/buy">Buy</Link>
 							<Link to="/sell">Sell</Link>
 						</div>

@@ -18,6 +18,7 @@ urlpatterns = [
     path('users/<str:pk>/', views.getUserById, name='user'),
     path('', views.getRoutes, name='routes'),
     path('rent/', views.getRentHomes, name='rentHomes'),
+    path('rentout/', views.rentOut, name='rentOut'),
     path('rent/<str:pk>', views.getRentHome, name='rentHome'),
     path('sell/', views.sellHome, name='sellHome'),
     path('buy/', views.getSellHomes, name='buyHomes'),

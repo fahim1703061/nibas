@@ -133,6 +133,38 @@ def getRentHome(requst, pk):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
+def rentOut(request):
+    data = request.data
+    user = request.user
+    try:
+        homeRentOut = RentHome.objects.create(
+            title=data['title'],
+            description=data['description'],
+            address=data['address'],
+            no_bedrooms=(data['no_bedrooms']),
+            no_bathrooms=(data['no_bathrooms']),
+            no_kitchens=data['no_kitchens'],
+            no_parkings=data['no_parkings'],
+            square_footage=data['square_footage'],
+            owner=user,
+            pricePerDuration=data['pricePerDuration'],
+            duration=data['duration'],
+            contact_no=data['contact_no'],
+            contact_email=data['contact_email'],
+            image=request.FILES.get('image'),
+
+
+        )
+
+        message = {'detail': 'Your home is added to sell list'}
+        return Response(message)
+    except:
+        message = {'detail': 'failed to add to list'}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def sellHome(request):
     data = request.data
     user = request.user
@@ -158,7 +190,7 @@ def sellHome(request):
         message = {'detail': 'Your home is added to sell list'}
         return Response(message)
     except:
-        message = {'detail': 'User with this email already exists'}
+        message = {'detail': 'failed to add to list'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
