@@ -127,7 +127,12 @@ def getRoutes(request):
 @api_view(['GET'])
 def getRentHomes(requst):
     # rentHomes = RentHome.objects.get(_id=1)
-    rentHomes = RentHome.objects.all()
+    query = requst.query_params.get('keyword')
+    # print(query)
+    if query == None:
+        query = ''
+    rentHomes = RentHome.objects.filter(address__icontains=query)
+
     # homes = Home.objects.get
     # serializer = HomeSerializer(rentHomes, many=True)
     print(rentHomes)
@@ -138,6 +143,8 @@ def getRentHomes(requst):
 @api_view(['GET'])
 def getRentHome(requst, pk):
     rentHome = None
+    query = requst.query_params.get('keyword')
+    print(query)
     rentHome = RentHome.objects.get(_id=pk)
     # for i in sellHomes:
     #     if i['_id'] == pk:
@@ -214,7 +221,11 @@ def sellHome(request):
 @api_view(['GET'])
 def getSellHomes(requst):
     # rentHomes = RentHome.objects.get(_id=1)
-    sellHomes = SellHome.objects.all()
+    query = requst.query_params.get('keyword')
+    # print(query)
+    if query == None:
+        query = ''
+    sellHomes = SellHome.objects.filter(address__icontains=query)
     # homes = Home.objects.get
     # serializer = HomeSerializer(rentHomes, many=True)
     print(sellHomes)

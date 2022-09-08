@@ -8,6 +8,10 @@ import axios from 'axios'
 
 function Buy() {
 
+  let keyword = window.location.search
+  // let keyword = useSearchParams()
+  console.log(keyword);
+
 
   const [buyHomes, setbuyHomes] = useState([])
   useEffect(() => {
@@ -15,7 +19,7 @@ function Buy() {
     async function fetchbuyHomes(){
 
       //start- data from backend
-      const { data } = await axios.get('/api/buy/')
+      const { data } = await axios.get(`/api/buy/${keyword}`)
       setbuyHomes(data)
       //end- data from backend
       // const { data } = rentHomes_data
@@ -24,7 +28,7 @@ function Buy() {
     fetchbuyHomes()
 
     
-  }, [])
+  }, [keyword])
   return (
     <div>
 

@@ -1,8 +1,10 @@
 import React, {useState} from "react";
-import { Link  } from "react-router-dom";
+import { Link, BrowserRouter  } from "react-router-dom";
 import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
 import { browserHistory } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap'
+
+
 // import { Link } from 'react-router-dom'
 // import placeholder from 'https://via.placeholder.com/728x90.png?text=Visit';
 
@@ -11,6 +13,9 @@ let profilePlaceholderUrl = "https://via.placeholder.com/728x90.png?text=Visit";
 
 function Header() {
 
+	let history = ''
+	
+	const [keyword, setKeyword] = useState('')
 
     // const userInfo = { 'name': 'Fahim'}
     const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
@@ -25,6 +30,20 @@ function Header() {
 		// this.props.history.push('/path')
 
     }
+
+	const searchHandler = (e) => {
+		e.preventDefault()
+
+		console.log(window.location.pathname);
+		history = window.location.pathname
+		if (keyword === '') {
+			return
+		}
+		if(history === '/rent' || history === '/buy' || history === '/rent/' || history === '/buy/'){
+			window.location.assign(window.location.pathname + '?keyword='+keyword)
+		}
+		
+	}
 
 	//  function for sidenav
 
@@ -76,12 +95,14 @@ function Header() {
                         nav-item
                     "
 							>
-								<form class="d-flex searchForm">
+								<form class="d-flex searchForm" onSubmit={searchHandler}>
 									<input
 										class="form-control search"
 										type="search"
-										placeholder="Search"
+										placeholder="Search on address"
 										aria-label="Search"
+										value={keyword}
+										onChange={(e) => setKeyword(e.target.value)}
 									/>
 									<button
 										class="mybtn btn-outline-success"
@@ -98,7 +119,7 @@ function Header() {
 							<div class="nav-item">
 								<span>
 									<a
-										href="{% url 'cart' %}"
+										href=" "
 										class="nav-link favourite-link"
 									>
 										<i
@@ -108,7 +129,7 @@ function Header() {
                                     badge
                                     favourite-icon
                                 "
-											value="{{favItems}}"
+											value=" "
 										></i>
 									</a>
 								</span>
@@ -196,8 +217,10 @@ function Header() {
 							<Link to="/profile">Profile</Link>
 							<Link to="/rent">Rent</Link>
 							<Link to="/rentout">Rent out</Link>
+							<Link to="/rentout/mylist">My Rentout list</Link>
 							<Link to="/buy">Buy</Link>
 							<Link to="/sell">Sell</Link>
+							<Link to="/sell/mylist">My Sell list</Link>
 						</div>
 					</nav>
 					{/* <!-- sidenav ends --> */}
