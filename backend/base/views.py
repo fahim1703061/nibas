@@ -187,6 +187,29 @@ def rentOut(request):
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getMyRentOutList(requst):
+
+    user = requst.user
+    rentHomes = RentHome.objects.filter(owner=user)
+
+    # homes = Home.objects.get
+    # serializer = HomeSerializer(rentHomes, many=True)
+    print(rentHomes)
+    serializer = RentHomeSerializer(rentHomes, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def deleteRentHome(request, pk):
+    str = 'Home was deleted' + pk
+    homeForDeletion = RentHome.objects.get(_id=pk)
+    homeForDeletion.delete()
+    return Response(str)
+
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def sellHome(request):
@@ -226,6 +249,19 @@ def getSellHomes(requst):
     if query == None:
         query = ''
     sellHomes = SellHome.objects.filter(address__icontains=query)
+    # homes = Home.objects.get
+    # serializer = HomeSerializer(rentHomes, many=True)
+    print(sellHomes)
+    serializer = SellHomeSerializer(sellHomes, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getMySellList(requst):
+    # rentHomes = RentHome.objects.get(_id=1)
+    user = requst.user
+    sellHomes = SellHome.objects.filter(owner=user)
     # homes = Home.objects.get
     # serializer = HomeSerializer(rentHomes, many=True)
     print(sellHomes)

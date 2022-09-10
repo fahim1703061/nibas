@@ -20,9 +20,12 @@ urlpatterns = [
     path('users/<str:pk>/', views.getUserById, name='user'),
     path('', views.getRoutes, name='routes'),
     path('rent/', views.getRentHomes, name='rentHomes'),
+    path('rent/delete/<str:pk>/', views.deleteRentHome, name='rentHomes-delete'),
     path('rentout/', views.rentOut, name='rentOut'),
+    path('rentout/mylist/', views.getMyRentOutList, name='rentOut-mylist'),
     path('rent/<str:pk>', views.getRentHome, name='rentHome'),
     path('sell/', views.sellHome, name='sellHome'),
+    path('sell/mylist/', views.sellHome, name='sellHome-mylist'),
     path('buy/', views.getSellHomes, name='buyHomes'),
     path('buy/<str:pk>', views.getSellHome, name='buyHome'),
 
