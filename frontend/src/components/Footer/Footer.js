@@ -17,7 +17,7 @@ function Footer() {
               <li><a href="/">Home</a></li>
               <li><a href="/">About Us</a></li>
               <li><Link to="/services">Services</Link></li>
-              <li><a href="/">Contact</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
           <div class="col-md">
@@ -42,7 +42,7 @@ function Footer() {
               <li><a href="/"><span class="fa fa-github"></span></a></li>
               {/* <li><a href="/"><span class="icon-dribbble"></span></a></li> */}
             </ul>
-            <p class=""><a href="/" class="btn btn-tertiary">Contact Us</a></p>
+            <p class=""><a href="/contact" class="btn btn-tertiary">Contact Us</a></p>
           </div>
         </div> 
 

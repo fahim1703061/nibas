@@ -48,3 +48,4 @@ https://resttesttest.com
 -   -   sol: use PyJWT-1.7.1
         Invalid options object. Dev Server has been initialized using an options object that does not match the API schema.
 -   options.allowedHosts[0] should be a non-empty string.
+-   fix profile pagepost req
