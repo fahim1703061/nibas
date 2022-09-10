@@ -25,8 +25,9 @@ urlpatterns = [
     path('rentout/mylist/', views.getMyRentOutList, name='rentOut-mylist'),
     path('rent/<str:pk>', views.getRentHome, name='rentHome'),
     path('sell/', views.sellHome, name='sellHome'),
-    path('sell/mylist/', views.sellHome, name='sellHome-mylist'),
+    path('sell/mylist/', views.getMySellList, name='sellHome-mylist'),
     path('buy/', views.getSellHomes, name='buyHomes'),
+    path('sell/delete/<str:pk>/', views.deleteSellHome, name='sellHomes-delete'),
     path('buy/<str:pk>', views.getSellHome, name='buyHome'),
 
 ]

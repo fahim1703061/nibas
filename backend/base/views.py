@@ -280,3 +280,12 @@ def getSellHome(requst, pk):
 
     serializer = SellHomeSerializer(sellHome, many=False)
     return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def deleteSellHome(request, pk):
+    str = 'Home was deleted' + pk
+    homeForDeletion = SellHome.objects.get(_id=pk)
+    homeForDeletion.delete()
+    return Response(str)
