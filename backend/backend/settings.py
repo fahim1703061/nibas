@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 
     'base.apps.BaseConfig',
+    'faqs.apps.FaqsConfig',
 
     'rest_framework_simplejwt',
 ]

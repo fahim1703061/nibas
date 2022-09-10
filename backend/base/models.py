@@ -105,3 +105,12 @@ class BuyerHome(models.Model):
 
     def __unicode__(self):
         return
+
+
+class ContactUs(models.Model):
+    _id = models.AutoField(primary_key=True, editable=False)
+    contact_email = models.EmailField(max_length=600, null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+    reply = models.TextField(null=True, blank=True)
+    checked = models.BooleanField(default=False)
+    contact_no = models.CharField(max_length=200, null=True, blank=True)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BuyerHome, RentHome, RenterHome, SellHome
+from .models import BuyerHome, ContactUs, RentHome, RenterHome, SellHome
 
 # Register your models here.
 
@@ -8,3 +8,4 @@ admin.site.register(RentHome)
 admin.site.register(RenterHome)
 admin.site.register(SellHome)
 admin.site.register(BuyerHome)
+admin.site.register(ContactUs)

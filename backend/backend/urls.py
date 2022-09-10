@@ -23,6 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+
+    path('api/faqs/', include('faqs.urls')),
     path('api/', include('base.urls')),
 ]
 

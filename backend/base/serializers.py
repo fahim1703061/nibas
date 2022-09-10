@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import RentHome, SellHome
+from .models import ContactUs, RentHome, SellHome
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -51,6 +51,13 @@ class SellHomeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SellHome
+        fields = '__all__'
+
+
+class ContactUsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContactUs
         fields = '__all__'
 
 
