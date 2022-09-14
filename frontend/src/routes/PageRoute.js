@@ -27,6 +27,7 @@ import MyRentOutList from '../pages/MyRentOutList/MyRentOutList';
 import MySellList from '../pages/MySellList/MySellList';
 import ContactUs from '../pages/ContactUs/ContactUs';
 import RentList from '../pages/RentList/RentList';
+import SellList from '../pages/SellList/SellList';
 
 function PageRoute() {
   return (
@@ -55,6 +56,8 @@ function PageRoute() {
 
             <Route exact path='/admin/userlist' element = {<UserList />}></Route>
             <Route exact path='/admin/rentlist' element = {<RentList />}></Route>
+            <Route exact path='/admin/selllist' element = {<SellList />}></Route>
+
 
             <Route  path='*' element = {<Error />}></Route>
         </Routes>
