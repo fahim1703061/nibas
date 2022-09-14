@@ -122,14 +122,16 @@ function Header() {
 										href=" "
 										class="nav-link favourite-link"
 									>
+										
 										<i
 											class="
-                                    fa fa-heart fa-lg
+                                    fa fa-regular fa-bell fa-lg
                                     d-inline
                                     badge
-                                    favourite-icon
+                                    favourite-icon 
                                 "
-											value=" "
+								      style={{color :'#ab9797'}}
+											value="0"
 										></i>
 									</a>
 								</span>
@@ -150,13 +152,26 @@ function Header() {
 									</LinkContainer> */}
 									
 									{(userInfo.isAdmin) ? (
-										<LinkContainer to='/admin/userlist'>
-										<NavDropdown.Item >
-											Userlist
-											
-										</NavDropdown.Item>
+										<div>
 
-									</LinkContainer>
+										<LinkContainer to='/admin/rentlist'>
+											<NavDropdown.Item >
+												Rent List
+												
+											</NavDropdown.Item>
+
+										</LinkContainer>
+
+										<LinkContainer to='/admin/userlist'>
+											<NavDropdown.Item >
+												Userlist
+												
+											</NavDropdown.Item>
+
+										</LinkContainer>
+										</div>
+
+										
 									) : null}
 									<LinkContainer to='/login'>
 										<NavDropdown.Item onClick={logoutHandler}>
