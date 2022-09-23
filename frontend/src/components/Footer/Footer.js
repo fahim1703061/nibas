@@ -39,7 +39,7 @@ function Footer() {
               <li><a href="/"><span className="fa fa-instagram icon-instagram"></span></a></li>
               <li><a href="/"><span class="fa fa-twitter icon-twitter"></span></a></li>
               <li><a href="/"><span class="fa fa-facebook-f icon-facebook"></span></a></li>
-              <li><a href="/"><span class="fa fa-github"></span></a></li>
+              <li><a href="https://github.com/fahim1703061/nibas"><span class="fa fa-github"></span></a></li>
               {/* <li><a href="/"><span class="icon-dribbble"></span></a></li> */}
             </ul>
             <p class=""><a href="/contact" class="btn btn-tertiary">Contact Us</a></p>
