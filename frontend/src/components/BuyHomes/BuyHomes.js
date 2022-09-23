@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Card} from 'react-bootstrap'
+import {Card, Image} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 function BuyHomes({buyHome}) {
@@ -20,6 +20,11 @@ function BuyHomes({buyHome}) {
             <Card.Title as = "div">
                 <strong>{buyHome.title}</strong>
             </Card.Title>
+            <Card.Text as="div">
+                <div className='my-3'>
+                <span class="image" style = {{marginRight: '12px'}}><Image src='/images/icons/buyHomes/marker.png' alt=""/></span><small>{buyHome.address}</small>
+                </div>
+            </Card.Text>
             <Card.Text as="div">
                 <div className='my-3'>
                     {buyHome.description}
