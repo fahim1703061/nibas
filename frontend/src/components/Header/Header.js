@@ -1,9 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link, BrowserRouter  } from "react-router-dom";
-import { Navbar, Nav, Container, Row, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, Row, NavDropdown, Dropdown, ToastContainer, Toast } from 'react-bootstrap'
 import { browserHistory } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap'
+import axios from 'axios'
 
+import './Header.css'
+import Notification from "../Notification/Notification";
+import { uncheckedNotification } from "../../CONSTANTS/notificationConstant";
 
 // import { Link } from 'react-router-dom'
 // import placeholder from 'https://via.placeholder.com/728x90.png?text=Visit';
@@ -14,11 +18,34 @@ let profilePlaceholderUrl = "https://via.placeholder.com/728x90.png?text=Visit";
 function Header() {
 
 	let history = ''
+    const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
 	
 	const [keyword, setKeyword] = useState('')
+	const [notifications, setNotofications] = useState([])
 
     // const userInfo = { 'name': 'Fahim'}
-    const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
+
+	useEffect(() => {
+    
+		async function fetchNotifications(){
+	
+		  //start- data from backend
+		  const headers = { 
+			'Content-type': 'application/json',
+			  'Authorization': `Bearer ${userInfo.token}`,
+			  // 'My-Custom-Header': 'foobar'
+		  };
+		  const { data } = await axios.get(`/api/notification/`, {headers})
+		  setNotofications(data)
+		  //end- data from backend
+		  // const { data } = rentHomes_data
+		  // setRentHomes(rentHomes_data)
+		}
+		fetchNotifications()
+	
+		
+	  }, [uncheckedNotification])
+
 	// let history = useHistory();
     //function for logout
 
@@ -117,7 +144,8 @@ function Header() {
 
 							{/*  <!-- favourite starts --> */}
 							<div class="nav-item">
-								<span>
+
+								{/* <span>
 									<a
 										href=" "
 										class="nav-link favourite-link"
@@ -134,14 +162,36 @@ function Header() {
 											value="0"
 										></i>
 									</a>
-								</span>
+								</span> */}
+								<NavDropdown className="notification"
+									title={<i
+										class="
+								fa fa-regular fa-bell fa-lg
+								d-inline
+								badge
+								favourite-icon 
+							"
+								  style={{color :'#ab9797'}}
+										value="0"
+									></i>}
+								>
+									{
+										notifications.map(notification => (
+											<NavDropdown.Item >
+												
+												<Notification notification={notification} />	
+											</NavDropdown.Item>
+
+										))
+									}
+								</NavDropdown>
 							</div>
 							{/* <!-- favourite endss -->
             <!-- login starts --> */}
 
 							{userInfo ? (
                                 
-								<NavDropdown 
+								<NavDropdown
 									title={userInfo.name}
 									id="username"
 								>

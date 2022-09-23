@@ -7,11 +7,11 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from .models import RentHome, SellHome
+from .models import Notification, RentHome, SellHome
 
 from .RentHomes_data import rentHomes
 
-from .serializers import RentHomeSerializer, SellHomeSerializer, UserSerializer, UserSerializerWithToken
+from .serializers import NotificationSerializer, RentHomeSerializer, SellHomeSerializer, UserSerializer, UserSerializerWithToken
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -289,3 +289,18 @@ def deleteSellHome(request, pk):
     homeForDeletion = SellHome.objects.get(_id=pk)
     homeForDeletion.delete()
     return Response(str)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getNotification(requst):
+    # rentHomes = RentHome.objects.get(_id=1)
+    user = requst.user
+    notification = Notification.objects.filter(
+        user=user).order_by('-createdAt')
+    # homes = Home.objects.get
+    # serializer = HomeSerializer(rentHomes, many=True)
+    print(notification)
+    serializer = NotificationSerializer(notification, many=True)
+
+    return Response(serializer.data)

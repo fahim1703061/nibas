@@ -29,5 +29,8 @@ urlpatterns = [
     path('buy/', views.getSellHomes, name='buyHomes'),
     path('sell/delete/<str:pk>/', views.deleteSellHome, name='sellHomes-delete'),
     path('buy/<str:pk>', views.getSellHome, name='buyHome'),
+    path('notification/', views.getNotification, name='notification'),
+
+
 
 ]

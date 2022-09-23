@@ -1,0 +1,12 @@
+.notification .dropdown-toggle::after {
+    display: none;
+}
+.notification .btn-primary {
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+    border: 0px;
+}
+.notification .btn-primary:hover {
+    background-color: inherit;
+}
