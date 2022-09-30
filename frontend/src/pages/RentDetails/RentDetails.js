@@ -162,7 +162,7 @@ function RentDetails() {
         <Row>
 
           <h3> Address on Google Map</h3>
-          <Gmap location={rentHome.address} />
+          <Gmap address={rentHome.address} />
           {/* <GoogleMap /> */}
         </Row>
 
