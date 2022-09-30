@@ -4,6 +4,8 @@ import rentHomes_data from './RentHomes_data';
 import { Link, useParams } from 'react-router-dom'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import axios from 'axios'
+import Gmap from '../../components/Gmap/Gmap';
+import GoogleMap from '../../components/GoogleMap/GoogleMap';
 
 function RentDetails() {
 
@@ -156,6 +158,12 @@ function RentDetails() {
 
 
           </div>
+        </Row>
+        <Row>
+
+          <h3> Address on Google Map</h3>
+          <Gmap location={rentHome.address} />
+          {/* <GoogleMap /> */}
         </Row>
 
 

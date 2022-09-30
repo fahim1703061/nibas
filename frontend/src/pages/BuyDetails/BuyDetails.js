@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import axios from 'axios'
 import buyHomes_data from './BuyHomes_data'
+import Gmap from '../../components/Gmap/Gmap';
 
 function BuyDetails() {
 
@@ -158,7 +159,12 @@ function BuyDetails() {
           </div>
         </Row>
 
-
+        <Row>
+          <br></br>
+          <h3> Address on Google Map</h3>
+          <Gmap address={buyHome.address} />
+          {/* <GoogleMap /> */}
+        </Row>
         
 
       </div>
