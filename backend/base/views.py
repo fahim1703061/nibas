@@ -1,4 +1,5 @@
 from operator import imod
+from turtle import title
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -20,7 +21,13 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import status
 
 
+from matplotlib import pyplot as plt
+import numpy as np
+# plt.use('Agg')
+
 # user view
+
+
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
@@ -180,7 +187,13 @@ def rentOut(request):
 
         )
 
-        message = {'detail': 'Your home is added to sell list'}
+        notification = Notification.objects.create(
+            user=user,
+            title='Rentout Home',
+            text='Your home is added to rentlist',
+        )
+
+        message = {'detail': 'Your home is added to rent list'}
         return Response(message)
     except:
         message = {'detail': 'failed to add to list'}
@@ -232,6 +245,12 @@ def sellHome(request):
             image=request.FILES.get('image'),
 
 
+        )
+
+        notification = Notification.objects.create(
+            user=user,
+            title='Sell Home',
+            text='Your home is added to sell list',
         )
 
         message = {'detail': 'Your home is added to sell list'}
@@ -303,4 +322,26 @@ def getNotification(requst):
     print(notification)
     serializer = NotificationSerializer(notification, many=True)
 
+    # stat
+    plt.switch_backend('AGG')
+    objects = ['Rent Home Listing', 'Sell Home listings']
+    y_pos = np.arange(len(objects))
+    qty = [0, 0]
+    qty[0] = RentHome.objects.all().count()
+    qty[1] = SellHome.objects.all().count()
+    barlist = plt.bar(y_pos, qty, align='center')
+    barlist[0].set_color('g')
+    barlist[1].set_color('b')
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Number of Homes')
+    plt.title('Home Listings')
+    plt.tight_layout()
+    plt.savefig('./static/insights/images/ListingBarchart.png')
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def getInsight(requst):
+
+    return Response('none')

@@ -22,6 +22,7 @@ function Header() {
 	
 	const [keyword, setKeyword] = useState('')
 	const [notifications, setNotofications] = useState([])
+	const [totalCheckedNotifications, settotalCheckedNotifications] = useState(0)
 
     // const userInfo = { 'name': 'Fahim'}
 
@@ -36,6 +37,14 @@ function Header() {
 			  // 'My-Custom-Header': 'foobar'
 		  };
 		  const { data } = await axios.get(`/api/notification/`, {headers})
+		  let total = 0
+		  for (let index = 0; index < data.length; index++) {
+			if (!data[index].checked) {
+				total = total + 1;
+			}
+			
+		  }
+		  settotalCheckedNotifications(total)
 		  setNotofications(data)
 		  //end- data from backend
 		  // const { data } = rentHomes_data
@@ -72,6 +81,8 @@ function Header() {
 		
 	}
 
+
+
 	//  function for sidenav
 
 	function openNav() {
@@ -85,7 +96,7 @@ function Header() {
 		<>
 			<header>
 				<div>
-					Header
+					{/* Header */}
 					<nav className="navbar navbar-expand-sm navbar-light bg-light nav-fill">
 						<div class="container-fluid">
 							<span
@@ -172,7 +183,7 @@ function Header() {
 								favourite-icon 
 							"
 								  style={{color :'#ab9797'}}
-										value="0"
+										value={totalCheckedNotifications}
 									></i>}
 								>
 									{

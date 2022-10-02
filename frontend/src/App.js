@@ -15,7 +15,7 @@ function App() {
 
         <Header />
         <PageRoute/>
-        Nibas
+        {/* Nibas */}
           
         
       

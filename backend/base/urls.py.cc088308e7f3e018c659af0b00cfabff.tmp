@@ -30,7 +30,7 @@ urlpatterns = [
     path('sell/delete/<str:pk>/', views.deleteSellHome, name='sellHomes-delete'),
     path('buy/<str:pk>', views.getSellHome, name='buyHome'),
     path('notification/', views.getNotification, name='notification'),
-    path('insight/', views.getInsight, name='Insight'),
+    path('insight/', views.getNotification, name='notification'),
     
 
 
