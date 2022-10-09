@@ -29,6 +29,7 @@ import ContactUs from '../pages/ContactUs/ContactUs';
 import RentList from '../pages/RentList/RentList';
 import SellList from '../pages/SellList/SellList';
 import Test from '../pages/Test/Test';
+import Insights from '../pages/Insights/Insights';
 
 function PageRoute() {
   return (
@@ -58,6 +59,8 @@ function PageRoute() {
             <Route exact path='/admin/userlist' element = {<UserList />}></Route>
             <Route exact path='/admin/rentlist' element = {<RentList />}></Route>
             <Route exact path='/admin/selllist' element = {<SellList />}></Route>
+            <Route exact path='/admin/insights' element = {<Insights />}></Route>
+
 
             <Route exact path='/test' element = {<Test />}></Route>
 

@@ -323,25 +323,75 @@ def getNotification(requst):
     serializer = NotificationSerializer(notification, many=True)
 
     # stat
+    # plt.switch_backend('AGG')
+    # objects = ['Rent Home Listing', 'Sell Home listings']
+    # y_pos = np.arange(len(objects))
+    # qty = [0, 0]
+    # qty[0] = RentHome.objects.all().count()
+    # qty[1] = SellHome.objects.all().count()
+    # barlist = plt.bar(y_pos, qty, align='center')
+    # barlist[0].set_color('g')
+    # barlist[1].set_color('b')
+    # plt.xticks(y_pos, objects)
+    # plt.ylabel('Number of Homes')
+    # plt.title('Home Listings')
+    # plt.tight_layout()
+    # plt.savefig('./static/insights/images/ListingBarchart.png')
+
+    # qty2 = RentHome.objects.order_by('user__id').distinct('user__id')
+    # print('-------------', qty2)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+# @permission_classes([IsAdminUser])
+def getInsight(requst):
+
+    # stat
+
     plt.switch_backend('AGG')
+
+    # ----freq rent and sell--------
+
     objects = ['Rent Home Listing', 'Sell Home listings']
     y_pos = np.arange(len(objects))
     qty = [0, 0]
     qty[0] = RentHome.objects.all().count()
     qty[1] = SellHome.objects.all().count()
-    barlist = plt.bar(y_pos, qty, align='center')
+    barlist = plt.bar(y_pos, qty, align='center', width=0.3)
     barlist[0].set_color('g')
     barlist[1].set_color('b')
     plt.xticks(y_pos, objects)
     plt.ylabel('Number of Homes')
     plt.title('Home Listings')
     plt.tight_layout()
-    plt.savefig('./static/insights/images/ListingBarchart.png')
-    return Response(serializer.data)
+    plt.savefig('./static/images/insights/images/ListingBarchart.jpg')
+    plt.clf()
 
+    # ----users in  registered vs rentout vs sell--------
 
-@api_view(['GET'])
-@permission_classes([IsAdminUser])
-def getInsight(requst):
+    qtyUsers = User.objects.all().count()
+    qtyUsersRentOut = RentHome.objects.values('owner__id').distinct().count()
+    qtyUsersSell = SellHome.objects.values('owner__id').distinct().count()
 
-    return Response('none')
+    objects = ['Registered', 'Rentout', 'Sell']
+    y_pos = np.arange(len(objects))
+    qty = [qtyUsers, qtyUsersRentOut, qtyUsersSell]
+    barlist = plt.bar(y_pos, qty, align='center', width=0.2)
+    barlist[0].set_color('g')
+    barlist[1].set_color('b')
+    barlist[2].set_color('r')
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Users')
+    plt.title('Insight about users')
+    plt.tight_layout()
+    plt.savefig('./static/images/insights/images/UsersBarchart.jpg')
+    # print('-------------', qty)
+
+    # ------data return-------
+
+    data = {
+        'ListingFig': '/images/insights/images/ListingBarchart.jpg',
+        'UsersFig': '/images/insights/images/UsersBarchart.jpg',
+    }
+    return Response(data)

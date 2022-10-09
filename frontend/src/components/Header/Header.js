@@ -237,6 +237,13 @@ function Header() {
 											</NavDropdown.Item>
 
 										</LinkContainer>
+										<LinkContainer to='/admin/insights'>
+											<NavDropdown.Item >
+												Insights
+												
+											</NavDropdown.Item>
+
+										</LinkContainer>
 										</div>
 
 										
